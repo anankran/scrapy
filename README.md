@@ -1,2 +1,2 @@
 # scrapy
-Testing Python framework Scrapy.
+Testing framework Scrapy.
