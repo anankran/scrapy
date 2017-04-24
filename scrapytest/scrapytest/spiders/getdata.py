@@ -3,17 +3,16 @@ import sys
 
 from scrapy.crawler import CrawlerProcess
 from scrapy.http import Request, FormRequest, Response, TextResponse, HtmlResponse, Headers
-# from scrapytest.items import ScrapytestItem
 
 class ScrapyTest(scrapy.Spider):
 
-    name = 'scrapytest'
+    name = 'scrapytestspider'
 
     # Creates list to loop over page
     pages = [range(1, 550, 15)]
     actual_page = 1
 
-    allowed_domains = [ 'fara.gov', 'anweb.pro' ]
+    allowed_domains = [ 'fara.gov' ]
 
     # Make GET requests to generate Cookie
     start_urls = [
@@ -48,8 +47,7 @@ class ScrapyTest(scrapy.Spider):
                         'dont_redirect': True,
                         'handle_httpstatus_list': [302]
                         }
-                #request = scrapy.FormRequest('https://efile.fara.gov/pls/apex/wwv_flow.show', headers=headers, formdata=data, meta=meta, callback=self.parse)
-                request = scrapy.FormRequest('http://anweb.pro/govpredict.html', headers=headers, formdata=data, meta=meta, callback=self.parse_page1)
+                request = scrapy.FormRequest('https://efile.fara.gov/pls/apex/wwv_flow.show', headers=headers, formdata=data, meta=meta, callback=self.parse)
             yield request
 
     # Start extracting data from to HTML response
