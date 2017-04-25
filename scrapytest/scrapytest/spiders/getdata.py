@@ -69,7 +69,7 @@ class ScrapyTest(scrapy.Spider):
                 doclink = scrapy.Request(url, callback=self.parse_page2)
 
                 values[i] = { "url" : url, "country" : country, "state" : state, "reg_num" : reg_num, "address" : address, "foreign_principal" : foreign_principal, "date" : date, "registrant" : registrant }
-                i = i + 1
+                i += 1
         yield values
 
     # Make GET request to extract data from the unique page
