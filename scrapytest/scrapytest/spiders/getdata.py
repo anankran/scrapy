@@ -28,7 +28,7 @@ class ScrapyTest(scrapy.Spider):
                 actual_page = page;
                 headers = {
                             'Cookie' : cookie,
-                            'Content-Type' : ''
+                            'Content-Type' : 'application/x-www-form-urlencoded'
                           }
                 data = {
                         'p_request' : 'APXWGT',
@@ -76,7 +76,6 @@ class ScrapyTest(scrapy.Spider):
 
     # Make GET request to extract data from the unique page
     def parse_page2(self, response):
-        print('aaa')
         print(response.body)
         #doclink = response.xpath('//td[@headers="DOCLINK"]/text()').extract()
         #print(doclink)
@@ -85,4 +84,3 @@ class ScrapyTest(scrapy.Spider):
 process = CrawlerProcess()
 process.crawl(ScrapyTest)
 process.start()
-print(process)
