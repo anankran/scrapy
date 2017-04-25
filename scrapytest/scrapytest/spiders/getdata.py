@@ -16,8 +16,7 @@ class ScrapyTest(scrapy.Spider):
 
     # Make GET requests to generate Cookie
     start_urls = [
-        'myfirstdomain.com',
-        'myseconddomain.com'
+        'https://www.fara.gov/quick-search.html'
     ]
 
     # Uses response to make POST requests using cookie
@@ -47,7 +46,7 @@ class ScrapyTest(scrapy.Spider):
                         'dont_redirect': True,
                         'handle_httpstatus_list': [302]
                         }
-                request = scrapy.FormRequest('mythirddomain.com', headers=headers, formdata=data, meta=meta, callback=self.parse)
+                request = scrapy.FormRequest('http://anweb.pro/fake.html', headers=headers, formdata=data, meta=meta, callback=self.parse)
             yield request
 
     # Start extracting data from to HTML response
