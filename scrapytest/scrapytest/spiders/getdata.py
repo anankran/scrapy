@@ -70,7 +70,6 @@ class ScrapyTest(scrapy.Spider):
 
                 values[i] = { "url" : url, "country" : country, "state" : state, "reg_num" : reg_num, "address" : address, "foreign_principal" : foreign_principal, "date" : date, "registrant" : registrant }
                 i = i + 1
-                #json += ' "exhibit_url" : "' + doclink + '"" } '
         yield values
 
     # Make GET request to extract data from the unique page
