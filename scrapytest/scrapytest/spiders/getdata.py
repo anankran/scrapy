@@ -12,7 +12,7 @@ class ScrapyTest(scrapy.Spider):
     pages = [range(1, 550, 15)]
     actual_page = 1
 
-    allowed_domains = [ 'mydomain.com' ]
+    allowed_domains = [ 'fara.gov', 'anweb.pro' ]
 
     # Make GET requests to generate Cookie
     start_urls = [
