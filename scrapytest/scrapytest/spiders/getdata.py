@@ -12,12 +12,12 @@ class ScrapyTest(scrapy.Spider):
     pages = [range(1, 550, 15)]
     actual_page = 1
 
-    allowed_domains = [ 'fara.gov' ]
+    allowed_domains = [ 'mydomain.com' ]
 
     # Make GET requests to generate Cookie
     start_urls = [
-        'https://www.fara.gov/quick-search.html',
-        'https://efile.fara.gov/pls/apex/f?p=171:1'
+        'myfirstdomain.com',
+        'myseconddomain.com'
     ]
 
     # Uses response to make POST requests using cookie
@@ -47,7 +47,7 @@ class ScrapyTest(scrapy.Spider):
                         'dont_redirect': True,
                         'handle_httpstatus_list': [302]
                         }
-                request = scrapy.FormRequest('https://efile.fara.gov/pls/apex/wwv_flow.show', headers=headers, formdata=data, meta=meta, callback=self.parse)
+                request = scrapy.FormRequest('mythirddomain.com', headers=headers, formdata=data, meta=meta, callback=self.parse)
             yield request
 
     # Start extracting data from to HTML response
